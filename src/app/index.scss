@@ -1,16 +1,103 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
+// .browsehappy {
+//   margin: 0.2em 0;
+//   background: #ccc;
+//   color: #000;
+//   padding: 0.2em 0;
+// }
 
-.thumbnail {
-  height: 200px;
+// .thumbnail {
+//   height: 200px;
 
-  img.pull-right {
-    width: 50px;
-  }
-}
+//   img.pull-right {
+//     width: 50px;
+//   }
+// }
 // injector
 // endinjector
+
+  //Media Queries
+@mixin breakpoint($point) {
+   @if $point == xlScreen {
+    @media (min-width: 1251px) { @content; }
+  }
+  @if $point == lScreen {
+    @media (max-width: 1250px) { @content; }
+  }
+   @if $point == mScreen {
+    @media (max-width: 825px) { @content; }
+  }
+    @if $point == sScreen {
+    @media (max-width: 575px) { @content; }
+  }
+}
+
+
+
+
+$background:  #FFF;
+$title: darken(#E9EAED, 30%);
+$titlefont: #FFF;
+$tab: darken(#E9EAED, 10%);
+$bottom-edge: darken(#E9EAED, 15%);
+$buttons: darken(#E9EAED, 30%);
+$mainfont: gray;
+
+
+body {
+  background-color: #E9EAED;
+}
+
+h1, p, button {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#wrapper {
+  width:60%;
+  margin:5% auto;
+  padding:10px;
+  background-color: $background;
+  border-bottom: 5px solid $bottom-edge;
+  @include breakpoint(mScreen) {
+  width:80%;
+  }
+  @include breakpoint(sScreen) {
+  width:100%;
+  margin:0px;
+  padding:0px;
+  }
+
+  #title {
+  background-color: $title;
+  padding:10px 0;
+    h1 {
+      padding: 5px 10px;
+      color: $titlefont;
+    }
+  }
+  
+  section {
+  background-color: $tab;
+  padding: 10px 0;
+  width:100%;
+  margin: 5px 0;
+  border-bottom: 3px solid $bottom-edge;
+  
+    button {
+      float:right;
+      background-color: $buttons;
+      border:none;
+      padding:10px 20px;
+      margin:8px 5px;
+      color:#fff;
+    }
+    p {
+      padding-left: 10px;
+      display: inline-block;
+    }
+  }
+}
+
+
+
+
+

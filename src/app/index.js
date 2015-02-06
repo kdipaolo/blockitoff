@@ -5,8 +5,8 @@ angular.module('blockitoff', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize',
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/todo/todo.html',
+        controller: 'MainCrl'
       });
 
     $urlRouterProvider.otherwise('/');
