@@ -1,29 +1,8 @@
- <div id="wrapper">
-    <div id="title"><h1>Block It Off</h1></div>
-    <section>
-      <p>Task one</p>
-      <button class="complete">Comp</button>
-      <button class="delete">Del</button>
-    </section>
-    <section>
-      <p>Task Two</p>
-      <button class="complete">Comp</button>
-      <button class="delete">Del</button>
-    </section>
-    <section>
-      <p>Task Three</p>
-      <button class="complete">Comp</button>
-      <button class="delete">Del</button>
-    </section>
-    <section>
-      <p>Task Four</p>
-      <button class="complete">Comp</button>
-      <button class="delete">Del</button>
-    </section>
-    <section>
-      <p>Task Five</p>
-      <button class="complete">Comp</button>
-      <button class="delete">Del</button>
-    </section>
-
-  </div>
+<div id="wrapper">
+  <div id="title"><h1>Block It Off</h1></div>
+  <section ng-repeat="tab in tabs">
+    <p>{{tab.task}}</p>
+    <button class="complete">Comp</button>
+    <button class="delete">Del</button>
+  </section>
+</div>
