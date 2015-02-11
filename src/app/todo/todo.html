@@ -1,8 +1,15 @@
-<div id="wrapper">
+
+  
+<div class="panel">
+  <p>Task List</p>
+  <p>Completed</p>
+</div>  
+<div class="wrapper">
   <div id="title"><h1>Block It Off</h1></div>
   <section ng-repeat="tab in tabs">
     <p>{{tab.task}}</p>
-    <button class="complete">Comp</button>
-    <button class="delete">Del</button>
+    <button class="delete"><i class="fa fa-minus-circle fa-3x"></i></button>
+    <button class="complete"><i class="fa fa-check-circle fa-3x"></i></button>
+    
   </section>
 </div>

@@ -34,13 +34,20 @@
 
 
 
-$background:  #FFF;
+$white:  #FFF;
+$offwhite:  darken(#FFF, 15%);
 $title: darken(#E9EAED, 30%);
 $titlefont: #FFF;
 $tab: darken(#E9EAED, 10%);
 $bottom-edge: darken(#E9EAED, 15%);
 $buttons: darken(#E9EAED, 30%);
 $mainfont: gray;
+
+$red: #d30000;
+$green: #1a7a00;
+
+
+
 
 
 body {
@@ -51,12 +58,11 @@ h1, p, button {
   font-family: 'Open Sans', sans-serif;
 }
 
-#wrapper {
+.wrapper {
   width:60%;
-  margin:5% auto;
+  margin:0 auto 5% auto;
   padding:10px;
-  background-color: $background;
-  border-bottom: 5px solid $bottom-edge;
+  clear:both;
   @include breakpoint(mScreen) {
   width:80%;
   }
@@ -65,6 +71,7 @@ h1, p, button {
   margin:0px;
   padding:0px;
   }
+
 
   #title {
   background-color: $title;
@@ -76,19 +83,39 @@ h1, p, button {
   }
   
   section {
-  background-color: $tab;
-  padding: 10px 0;
+  background-color: $white;
   width:100%;
   margin: 5px 0;
-  border-bottom: 3px solid $bottom-edge;
-  
+  border-bottom: 3px solid $offwhite;
+  height:70px;
+  opacity:0.7;
+  transition: all 0.3s ease;
+  &:hover {
+  opacity:1;
+  height:90px;
+  transition: all 0.3s ease;
+  }
     button {
       float:right;
-      background-color: $buttons;
+      background-color: $offwhite;
       border:none;
-      padding:10px 20px;
-      margin:8px 5px;
+      padding:0px 40px;
+      height:100%;
       color:#fff;
+      
+    }
+  
+    .complete {color: $green;}
+    .delete {color: $red;}
+    i {
+      transition: all 0.3s ease;
+      opacity: 0.3;  
+    }
+    i:hover {
+      transform: scale(1.5);
+      opacity:0.75;
+      transition: all 0.3s ease;
+
     }
     p {
       padding-left: 10px;
@@ -97,6 +124,29 @@ h1, p, button {
   }
 }
 
+.panel {
+  width:60%;
+  margin:5% auto 0 auto;
+  padding:5px;
+  
+  @include breakpoint(mScreen) {
+  width:80%;
+  }
+  @include breakpoint(sScreen) {
+  width:100%;
+  margin:0px;
+  padding:0px;
+  }
+    p {
+    float:right;  
+    display:inline-block;
+    text-align:center;
+    padding:10px;
+    box-sizing:border-box;
+    margin:10px 0;
+  }
+
+}
 
 
 

@@ -6,7 +6,7 @@
 
 
 angular.module('blockitoff')
-  .controller('todoCtrl', function ($scope) {
+  .controller('todoCtrl', ["$scope", "$firebase", function ($scope, $firebase) {
     $scope.tabs = [
       {
         'task': 'Do Homework',
@@ -27,4 +27,4 @@ angular.module('blockitoff')
         'task': 'Do Good Stuff',
       }
     ];
-  });
+  }]);
