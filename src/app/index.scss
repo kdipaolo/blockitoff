@@ -48,11 +48,14 @@ $green: #1a7a00;
 
 
 
-
+* {
+  box-sizing:border-box;
+}
 
 body {
   background-color: #E9EAED;
 }
+
 
 h1, p, button {
   font-family: 'Open Sans', sans-serif;
@@ -71,7 +74,26 @@ h1, p, button {
   margin:0px;
   padding:0px;
   }
-
+  input {
+    width: 100%;
+    padding: 20px 0;
+    margin: 5px 0px;
+    font-size:16px;
+    padding-left:10px;
+  }
+  button[type="submit"] {
+    background-color: $green;
+    color:#fff;
+    border:none;
+    opacity:0.4;
+    width:100%;
+    padding: 15px 0;
+     transition: all 0.3s ease;
+    &:hover {
+     transition: all 0.3s ease;
+     opacity:0.5; 
+    }  
+  }
 
   #title {
   background-color: $title;
@@ -83,6 +105,7 @@ h1, p, button {
   }
   
   section {
+    cursor: move;
   background-color: $white;
   width:100%;
   margin: 5px 0;
@@ -94,7 +117,13 @@ h1, p, button {
   opacity:1;
   height:90px;
   transition: all 0.3s ease;
+   @include breakpoint(sScreen) {
+      height:50px;
+    }
   }
+     @include breakpoint(sScreen) {
+      height:50px;
+    }
     button {
       float:right;
       background-color: $offwhite;
@@ -102,6 +131,9 @@ h1, p, button {
       padding:0px 40px;
       height:100%;
       color:#fff;
+        @include breakpoint(sScreen) {
+      padding:0px 10px;
+    }
       
     }
   
@@ -110,11 +142,17 @@ h1, p, button {
     i {
       transition: all 0.3s ease;
       opacity: 0.3;  
+        @include breakpoint(sScreen) {
+      font-size:25px;
+    }
     }
     i:hover {
       transform: scale(1.5);
       opacity:0.75;
       transition: all 0.3s ease;
+           @include breakpoint(sScreen) {
+      transform: scale(1.25);
+    }
 
     }
     p {

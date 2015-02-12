@@ -8,23 +8,18 @@
 angular.module('blockitoff')
   .controller('todoCtrl', ["$scope", "$firebase", function ($scope, $firebase) {
     $scope.tabs = [
-      {
-        'task': 'Do Homework',
-      },
-      {
-        'task': 'Fix Car',
-      },
-      {
-        'task': 'Call Grandpa',
-      },
-      {
-        'task': 'Eat Dinner',
-      },
-      {
-        'task': 'Write Code',
-      },
-      {
-        'task': 'Do Good Stuff',
-      }
+        'Do Homework',
+        'Fix Car',
+        'Call Grandpa',
+        'Eat Dinner',
+        'Write Code',
+        'Do Good Stuff'
     ];
+      $scope.add = function () {
+      $scope.tabs.push($scope.tab);
+      $scope.tab = '';
+    };
+    $scope.delete = function (index) {
+      $scope.tabs.splice(index, 1);
+    };
   }]);

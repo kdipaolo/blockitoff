@@ -1,15 +1,20 @@
-
-  
 <div class="panel">
   <p>Task List</p>
   <p>Completed</p>
 </div>  
+
 <div class="wrapper">
   <div id="title"><h1>Block It Off</h1></div>
-  <section ng-repeat="tab in tabs">
-    <p>{{tab.task}}</p>
-    <button class="delete"><i class="fa fa-minus-circle fa-3x"></i></button>
-    <button class="complete"><i class="fa fa-check-circle fa-3x"></i></button>
-    
-  </section>
+  <form role="form" ng-submit="add()">
+   <input type="text" ng-model="tab" placeholder="Add a Task">
+   <button type="submit"><i class="fa fa-plus-circle fa-3x"></i></button>
+ </form>     
+<!-- ui-sortable ADD THIS WITH RICARDO -->
+<div ng-model="tabs">
+ <section ng-repeat="tab in tabs">
+  <p>{{tab}}</p>
+  <button class="delete" ng-click="delete()"><i class="fa fa-minus-circle fa-3x"></i></button>
+  <button class="complete"><i class="fa fa-check-circle fa-3x"></i></button>
+</section>
+</div>
 </div>
