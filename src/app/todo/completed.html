@@ -1,0 +1,14 @@
+<div class="panel">
+  <p><a ui-sref="home">Task List</a></p>
+  <p><a ui-sref="completed">Completed</a></p>
+</div>  
+
+<div class="wrapper">
+  <div id="title"><h1>Completed</h1></div>
+   
+<div ng-model="tabs">
+ <section ng-repeat="tab in tabs">
+  <p>{{tab}}</p>
+</section>
+</div>
+</div>

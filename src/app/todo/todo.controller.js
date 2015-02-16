@@ -21,5 +21,6 @@ angular.module('blockitoff')
     };
     $scope.delete = function (index) {
       $scope.tabs.splice(index, 1);
+
     };
   }]);

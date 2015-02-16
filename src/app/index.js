@@ -8,6 +8,11 @@ angular.module('blockitoff', ['firebase', 'ngAnimate', 'ngCookies', 'ngTouch', '
         templateUrl: 'app/todo/todo.html',
         controller: 'todoCtrl'
       });
+    $stateProvider
+    .state('completed', {
+      url: '/completed',
+      templateUrl: 'app/todo/completed.html',
+    });
 
     $urlRouterProvider.otherwise('/');
   })
