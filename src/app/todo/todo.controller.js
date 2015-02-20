@@ -7,6 +7,8 @@
 
 angular.module('blockitoff')
   .controller('todoCtrl', ["$scope", "$firebase", function ($scope, $firebase) {
+    
+    
     $scope.tabs = [
         'Do Homework',
         'Fix Car',
@@ -14,13 +16,35 @@ angular.module('blockitoff')
         'Eat Dinner',
         'Write Code',
         'Do Good Stuff'
-    ];
-      $scope.add = function () {
+        ];
+
+    // $scope.tabs = {};
+  
+    $scope.toDoData = new Firebase("https://blockitoff.firebaseio.com/");    
+  
+
+    $scope.add = function () {
       $scope.tabs.push($scope.tab);
+      $scope.toDoData.push($scope.tab);
       $scope.tab = '';
+
     };
     $scope.delete = function (index) {
       $scope.tabs.splice(index, 1);
-
+      
     };
+
+    // $scope.toDoData.on('value', function(data){
+    //   $scope.tabs = data.val();
+    // });
+
+
+    
+    // $scope.remove = function(){
+    //   setInterval(function () {
+    //     $scope.tabs.splice(index, 1);
+    //   }, 3000);
+    // };
+
+
   }]);

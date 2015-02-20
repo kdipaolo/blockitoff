@@ -7,8 +7,10 @@
   <div id="title"><h1>Completed</h1></div>
    
 <div ng-model="tabs">
- <section ng-repeat="tab in tabs">
-  <p>{{tab}}</p>
+ <section  ng-repeat="done in completed">
+  <p>{{done}}</p>
+  <button class="delete" ng-click="delete()"><i class="fa fa-minus-circle fa-3x"></i></button>
+  <button class="complete"><i class="fa fa-check-circle fa-3x"></i></button>
 </section>
 </div>
 </div>
