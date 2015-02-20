@@ -1,6 +1,6 @@
 'use strict';
 
-var blockitoff = angular.module('blockitoff', ['firebase', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap' , 'ui.sortable'])
+var blockitoff = angular.module('blockitoff', ['firebase', 'ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.router', 'ui.bootstrap'])
 
 blockitoff.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -18,24 +18,24 @@ blockitoff.config(function ($stateProvider, $urlRouterProvider) {
       controller: 'todoCtrl'
     });
     $urlRouterProvider.otherwise('/');
-    
+
   });
 
 
-blockitoff.factory('simpleFactory', function(){
-        var tabs = [
-        'Do Homework',
-        'Fix Car',
-        'Call Grandpa',
-        'Eat Dinner',
-        'Write Code',
-        'Do Good Stuff'
-        ];
+// blockitoff.factory('simpleFactory', function(){
+//         var tabs = [
+//         'Do Homework',
+//         'Fix Car',
+//         'Call Grandpa',
+//         'Eat Dinner',
+//         'Write Code',
+//         'Do Good Stuff'
+//         ];
 
-        var factory = {};
-        factory.getTabs = function() {
-          return tabs;
-        }
-        return factory;
-    });
+//         var factory = {};
+//         factory.getTabs = function() {
+//           return tabs;
+//         }
+//         return factory;
+//     });
 
