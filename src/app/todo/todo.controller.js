@@ -1,6 +1,6 @@
 'use strict';
 
-// ^^ It's meant to catch coding shenanigans it helps you make fewer errors by detecting more things 
+// ^^ It's meant to catch coding shenanigans it helps you make fewer errors by detecting more things
 //that could lead your code to breaksuch as global variables that will throw an exception
 //if you don't use the 'use strict', jS will allow it
 
@@ -9,7 +9,7 @@ angular.module('blockitoff')
 .controller('todoCtrl', ["$scope", "$firebase", function ($scope, $firebase) {
 
 
-  $scope.tabs = [
+  var tabsArray = [
   'Do Homework',
   'Fix Car',
   'Call Grandpa',
@@ -20,22 +20,22 @@ angular.module('blockitoff')
 
     // $scope.tabs = {};
 
-    $scope.toDoData = new Firebase("https://blockitoff.firebaseio.com/");    
+    $scope.toDoData = new Firebase("https://blockitoff.firebaseio.com/");
 
 
     $scope.add = function () {
-      $scope.tabs.push($scope.tab);
+      tabsArray.push($scope.tab);
       $scope.toDoData.push($scope.tab);
       $scope.tab = '';
 
     };
     $scope.delete = function (index) {
-      $scope.tabs.splice(index, 1);
-      
+      $scope.tabsArray.splice(index, 1);
+
     };
 
     $scope.toDoData.on('value', function(data){
-      $scope.tabs = data.val();
+      $scope.tabsArray = data.val();
     });
 
 
