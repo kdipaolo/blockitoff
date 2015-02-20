@@ -6,22 +6,22 @@
 
 
 angular.module('blockitoff')
-  .controller('todoCtrl', ["$scope", "$firebase", function ($scope, $firebase) {
-    
-    
-    $scope.tabs = [
-        'Do Homework',
-        'Fix Car',
-        'Call Grandpa',
-        'Eat Dinner',
-        'Write Code',
-        'Do Good Stuff'
-        ];
+.controller('todoCtrl', ["$scope", "$firebase", function ($scope, $firebase) {
+
+
+  $scope.tabs = [
+  'Do Homework',
+  'Fix Car',
+  'Call Grandpa',
+  'Eat Dinner',
+  'Write Code',
+  'Do Good Stuff'
+  ];
 
     // $scope.tabs = {};
-  
+
     $scope.toDoData = new Firebase("https://blockitoff.firebaseio.com/");    
-  
+
 
     $scope.add = function () {
       $scope.tabs.push($scope.tab);
@@ -34,17 +34,16 @@ angular.module('blockitoff')
       
     };
 
-    // $scope.toDoData.on('value', function(data){
-    //   $scope.tabs = data.val();
-    // });
+    $scope.toDoData.on('value', function(data){
+      $scope.tabs = data.val();
+    });
 
 
-    
     // $scope.remove = function(){
     //   setInterval(function () {
     //     $scope.tabs.splice(index, 1);
     //   }, 3000);
     // };
 
-
+    // AFTER SEVEN DAYS DELETE
   }]);
