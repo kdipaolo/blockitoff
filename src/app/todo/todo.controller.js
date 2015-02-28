@@ -6,44 +6,42 @@
 
 
 angular.module('blockitoff')
-.controller('todoCtrl', ["$scope", "$firebase", function ($scope, $firebase) {
+.controller('todoCtrl', ["$scope", "$firebase", "$location", function ($scope, $firebase, $location) {
 
+    // ----- Data ------
+    var todos = [];
+    var ref = new Firebase('https://blockitoff.firebaseio.com/todos');
+    var sync = $firebase(ref);
+    $scope.todos = sync.$asArray();
 
-  var tabsArray = [
-  'Do Homework',
-  'Fix Car',
-  'Call Grandpa',
-  'Eat Dinner',
-  'Write Code',
-  'Do Good Stuff'
-  ];
+    $scope.statusFilter = {};
 
-    // $scope.tabs = {};
-
-    $scope.toDoData = new Firebase("https://blockitoff.firebaseio.com/");
-
-
-    $scope.add = function () {
-      tabsArray.push($scope.tab);
-      $scope.toDoData.push($scope.tab);
-      $scope.tab = '';
-
+    if($location.path() == ''){
+      $location.path('/')
     };
-    $scope.delete = function (index) {
-      $scope.tabsArray.splice(index, 1);
-
-    };
-
-    $scope.toDoData.on('value', function(data){
-      $scope.tabsArray = data.val();
+    $scope.location = $location;
+    $scope.$watch('location.path()', function(path){
+        $scope.statusFilter = 
+          (path == '/') ? {done : false} : 
+          (path == '/completed') ? {done : true} : 
+          null;
     });
 
+    // ----- ADD ------
+    $scope.add = function (item) {
+      $scope.todos.$add({text: item, done:false});
+      $scope.tab = "";
+    };
+    
+    // ----- DELETE ------
+    $scope.delete = function (item) {
+      $scope.todos.$remove(item);
+    }
 
-    // $scope.remove = function(){
-    //   setInterval(function () {
-    //     $scope.tabs.splice(index, 1);
-    //   }, 3000);
-    // };
 
+
+
+ 
+    // Completed 
     // AFTER SEVEN DAYS DELETE
   }]);

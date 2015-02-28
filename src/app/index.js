@@ -14,7 +14,7 @@ blockitoff.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
     .state('completed', {
       url: '/completed',
-      templateUrl: 'app/todo/completed.html',
+      templateUrl: 'app/todo/todo.html',
       controller: 'todoCtrl'
     });
     $urlRouterProvider.otherwise('/');
@@ -22,20 +22,24 @@ blockitoff.config(function ($stateProvider, $urlRouterProvider) {
   });
 
 
-// blockitoff.factory('simpleFactory', function(){
-//         var tabs = [
-//         'Do Homework',
-//         'Fix Car',
-//         'Call Grandpa',
-//         'Eat Dinner',
-//         'Write Code',
-//         'Do Good Stuff'
-//         ];
-
-//         var factory = {};
-//         factory.getTabs = function() {
-//           return tabs;
+// blockitoff.filter('todoFilter', function ($location) {
+//   return function (input) {
+//     var filtered = {};
+//     angular.forEach(input, function (todo, id) {
+//       var path = $location.path();
+//       if (path === '/') {
+//         if (!todo.completed) {
+//           filtered[id] = todo;
 //         }
-//         return factory;
+//       } else if (path === '/completed') {
+//         if (todo.completed) {
+//           filtered[id] = todo;
+//         }
+//       } else {
+//         filtered[id] = todo;
+//       }
 //     });
+//     return filtered;
+//   };
+// });
 

@@ -5,16 +5,15 @@
 
 <div class="wrapper">
   <div id="title"><h1>Tasks</h1></div>
-  <form role="form" ng-submit="add()">
+  <form role="form" ng-submit="add(tab)">
    <input type="text" ng-model="tab" placeholder="Add a Task">
    <button type="submit"><i class="fa fa-plus-circle fa-3x"></i></button>
  </form>
 <!-- ui-sortable ADD THIS WITH RICARDO -->
-<div ng-model="tabsArray">
- <section   ng-repeat="tab in tabsArray">
-  <p>{{tab}}</p>
-  <button class="delete" ng-click="delete()"><i class="fa fa-minus-circle fa-3x"></i></button>
-  <button class="complete"><i class="fa fa-check-circle fa-3x"></i></button>
+ <section ng-repeat="(id, todo) in todos | filter: statusFilter" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+  <p>{{todo.text}}</p>
+  <button class="delete" ng-click="delete(todo)"><i class="fa fa-minus-circle fa-3x"></i></button>
+  <button class="complete"><i class="fa fa-check-circle fa-3x">{{todo.completed}}</i></button>
 </section>
-</div>
+
 </div>
