@@ -43,8 +43,8 @@ $mainfont: gray;
 
 $red: #d30000;
 $green: #1a7a00;
-
-
+$orange: orange;
+$yellow: yellow;
 
 * {
   box-sizing:border-box;
@@ -111,6 +111,7 @@ h1, p, button {
   height:70px;
   opacity:0.7;
   transition: all 0.3s ease;
+  
   &:hover {
   opacity:1;
   height:90px;
@@ -122,21 +123,25 @@ h1, p, button {
      @include breakpoint(sScreen) {
       height:50px;
     }
+
     button {
       float:right;
-      background-color: $offwhite;
       border:none;
-      padding:0px 40px;
+      padding:0px 20px;
       height:100%;
       color:#fff;
+      background-color: $offwhite;
         @include breakpoint(sScreen) {
       padding:0px 10px;
     }
       
     }
   
+    .med { background-color: $orange; }
+    .high { background-color: $red; }
     .complete {color: $green;}
-    .delete {color: $red;}
+    .delete {color: $red; }
+    .priority {color: $orange;}
     i {
       transition: all 0.3s ease;
       opacity: 0.3;  
@@ -183,7 +188,6 @@ h1, p, button {
   }
 
 }
-
 
 
 

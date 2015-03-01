@@ -3,6 +3,7 @@
   <p><a ui-sref="completed">Completed</a></p>
 </div>
 
+
 <div class="wrapper">
   <div id="title"><h1>Tasks</h1></div>
   <form role="form" ng-submit="add(tab)">
@@ -10,10 +11,13 @@
    <button type="submit"><i class="fa fa-plus-circle fa-3x"></i></button>
  </form>
 <!-- ui-sortable ADD THIS WITH RICARDO -->
- <section ng-repeat="(id, todo) in todos | filter: statusFilter" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+ <section  class="high" ng-repeat="(id, todo) in todos | filter: statusFilter" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
   <p>{{todo.text}}</p>
   <button class="delete" ng-click="delete(todo)"><i class="fa fa-minus-circle fa-3x"></i></button>
-  <button class="complete"><i class="fa fa-check-circle fa-3x">{{todo.completed}}</i></button>
+  <button class="complete" ng-click="markComplete()"><i class="fa fa-check-circle fa-3x">{{todo.completed}}</i></button>
+<button class="priority"  ng-class="{'button': !isActive, 'button active': isActive}"
+       ng-init="isActive = false"
+       ng-click="isActive = !isActive"><i class="fa fa-exclamation-triangle fa-3x"></i></button>
 </section>
 
 </div>
