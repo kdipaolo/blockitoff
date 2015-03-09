@@ -9,37 +9,38 @@ blockitoff.config(function ($stateProvider, $urlRouterProvider) {
       .state('home', {
         url: '/',
         templateUrl: 'app/todo/todo.html',
-        controller: 'todoCtrl'
+        controller: 'TodoCtrl'
       });
     $stateProvider
     .state('completed', {
       url: '/completed',
       templateUrl: 'app/todo/todo.html',
-      controller: 'todoCtrl'
+      controller: 'TodoCtrl'
     });
     $urlRouterProvider.otherwise('/');
 
   });
 
 
-// blockitoff.filter('todoFilter', function ($location) {
-//   return function (input) {
-//     var filtered = {};
-//     angular.forEach(input, function (todo, id) {
-//       var path = $location.path();
-//       if (path === '/') {
-//         if (!todo.completed) {
-//           filtered[id] = todo;
-//         }
-//       } else if (path === '/completed') {
-//         if (todo.completed) {
-//           filtered[id] = todo;
-//         }
-//       } else {
-//         filtered[id] = todo;
-//       }
-//     });
-//     return filtered;
-//   };
-// });
+blockitoff.filter('todoFilter', function ($location) {
+  return function (input) {
+    var filtered = {};
+    angular.forEach(input, function (todo, id) {
+      var path = $location.path();
+      if (path === '/active') {
+        if (!todo.completed) {
+          filtered[id] = todo;
+        }
+      } else if (path === '/completed') {
+        if (todo.completed) {
+          filtered[id] = todo;
+        }
+      } else {
+        filtered[id] = todo;
+      }
+    });
+    return filtered;
+  };
+});
+
 
